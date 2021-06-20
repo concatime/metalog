@@ -1744,8 +1744,20 @@ int main(int argc, char *argv[])
     remote_host.last_dns.tv_sec = 0;
     remote_host.result = NULL;
     parseOptions(argc, argv);
-    if (configParser(config_file) < 0)
+
+    if (config_file != NULL) {
+        if (configParser(config_file) < 0) {
+            err("Bad configuration file");
+        }
+        free((void *) config_file);
+    } else if (access(SYSTEM_CONFIG_FILE, F_OK) == 0) {
+        if (configParser(SYSTEM_CONFIG_FILE) < 0) {
+            err("Bad configuration file");
+        }
+    } else if (configParser(DEFAULT_CONFIG_FILE) < 0) {
         err("Bad configuration file");
+    }
+
     checkRoot();
     setgroup();
     dodaemonize();

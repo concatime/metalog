@@ -42,7 +42,7 @@ static int verbose;
 static bool do_kernel_log = true;
 static signed char daemonize;
 static const char *pid_file = DEFAULT_PID_FILE;
-static const char *config_file = DEFAULT_CONFIG_FILE;
+static const char *config_file = NULL;
 static const char *group_name = NULL;
 
 #endif

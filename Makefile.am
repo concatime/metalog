@@ -3,7 +3,8 @@ EXTRA_DIST = \
 	metalog.spec.in \
 	metalog.lsm.in
 
-sysconf_DATA = metalog.conf
+metalogdatadir = $(datadir)/metalog
+metalogdata_DATA = metalog.conf
 
 SUBDIRS = \
 	src \

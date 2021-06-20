@@ -4,7 +4,9 @@ sbin_PROGRAMS = \
 	metalog
 
 AM_CPPFLAGS = \
-	-DCONFDIR=\"$(sysconfdir)\"
+	-D 'DATADIR="$(datadir)"' \
+	-D 'RUNSTATEDIR="$(runstatedir)"' \
+	-D 'SYSCONFDIR="$(sysconfdir)"'
 
 metalog_SOURCES = \
 	helpers.h \
